@@ -6,7 +6,7 @@ A script written in Python3 that utilizes the URLScan.IO and VirusTotal API's to
 
 
 ## Why SusLinks?
-Are you getting some phishy emails in your inbox? Well, of course you are! Ever wonder what all happens when you go to the link embedded in the phishing email? Well  don't click it to find out, use SusLinks! 
+Are you getting some phishy emails in your inbox that contain SUSpicious links? Well, of course you are! Ever wonder what all happens when you go to the link embedded in the phishing email? Well  don't click it to find out, use SusLinks! 
 
 The goal in mind behind SusLinks was to provide a URL, have it sent for scanning to the URLScan.IO API and pull back all the associated IP's, hashes and domains, use the VirusTotal API to search the verdict (malicious, harmless, suspicious, unidentified) of each item, and then run a VirusTotal URL scan. Then, print all those results to a text file to examine. And well, that's excatly what this script does!
 
