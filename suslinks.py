@@ -217,7 +217,7 @@ else:
     time.sleep(1)
     
 #Setting variables for VirusTotal scan
-notfound = [] #<----- This variable is for the hashes not found in the VT search API call. These will be scanned. 
+notfound = [] #<----- This variable is for the hashes not found in the VT search API call.
 ipv4 = []
 ipv6 = [] 
 domains = frjson['lists']['domains']
