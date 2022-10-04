@@ -202,7 +202,7 @@ else:
     with open('URLScanResults.txt', 'w') as scanresult:
         scanresult.write("Scan job:" + '\n' + '\n' + json.dumps(frjson['task'], indent=4) + '\n' + '\n')
         scanresult.write("Malicious?: " + str(frjson['verdicts']['urlscan']['malicious']) + '\n' + '\n')
-        scanresult.write("Associated Domains:" + '\n' + '\n' + str(frjson['lists']['domains'], indent=4) + '\n' + '\n')
+        scanresult.write("Associated Domains:" + '\n' + '\n' + str(json.dumps(frjson['lists']['domains'], indent=4)) + '\n' + '\n')
         scanresult.write("Associated IP's:" + '\n' + '\n') 
         for dictionary in stats:
             for val in dictionary['ips']:
