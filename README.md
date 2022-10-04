@@ -66,6 +66,7 @@ The following Python modules are required for this script to run:
   **Note:** 
   
   - This script for now requires you to call Python rather than the script directly when running it. 
+  - The TXT files get written to the scripts PWD
   - Wrap your URL in quotes for all shells. 
   
   
