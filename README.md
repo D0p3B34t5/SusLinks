@@ -42,9 +42,10 @@ For this script, I have decided to implement environment variables as the means 
           source ~/.bashrc
           source ~/.zshrc
           
-## A couple things to note:
+## A few things to note:
   - Due to VirusTotal's free-tier limitation to 4 requets per minute, each search request is set to send 15 seconds apart. I have set the script to alert you if more than 20 IP's, hashes or domains (equivalent to around 5 minutes per scan) are detected, and will provide the total number of each and an estimated scan time. The VirusTotal searches could possibly take up to 15 minutes (or more if you allow a longer scan) if your URL results pull back 20 IP's, hashes and domains.
   - Until I find a good way to handle the text file creation, I currenlty have the script set to remove the previous scans files and create new ones, so I'd advice doing a Save As or moving the text files to a different directory if you want individual copies of results. 
+  - The TXT files get created in this scripts PWD
 ## Requirements: 
 **Written and tested on Python version 3.10.7**
 
@@ -66,7 +67,6 @@ The following Python modules are required for this script to run:
   **Note:** 
   
   - This script for now requires you to call Python rather than the script directly when running it. 
-  - The TXT files get written to the scripts PWD
   - Wrap your URL in quotes for all shells. 
   
   
