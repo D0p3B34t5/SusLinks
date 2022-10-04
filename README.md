@@ -13,7 +13,7 @@ The goal in mind behind SusLinks was to provide a URL, have it sent for scanning
 
 ## API Authentication
 **NOTE:**
-For this script, I have decided to implement environment variables as the means of passing both of your URLScan.IO and VirusTotal API keys. You'll need to manually add these environment variables for this script to work, and I have provided instructions below to do so. 
+For this script, I have decided to implement environment variables as the means of passing both of your URLScan.IO and VirusTotal API keys. You'll need to manually add these environment variables for this script to work, and I have provided instructions below on how to do so. 
 
 ### **Windows**
   - Open the Control Panel
