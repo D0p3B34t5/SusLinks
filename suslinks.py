@@ -395,7 +395,5 @@ with open("VTScan.txt", 'a') as results:
 print('[+] Scan analysis appended to "VTScan.txt"...')
 time.sleep(1)
 
-
-
 print("[+] Scan complete...")
 #ezlife
