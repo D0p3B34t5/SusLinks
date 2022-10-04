@@ -117,10 +117,10 @@ total = results['total']
 if total != 0:
     uuids = []
     item = results['results']
-    print("[+] Results found! Grabbing associated UUID's...")
+    print("[+] " + str(total) + " Results found! Grabbing associated UUID's...")
     time.sleep(1)
     with open("URLResults.txt", 'w') as uuid:        
-        for i in range(0, len(item)):
+        for i in range(0, 20):
             uid = item[i]['task']['uuid']
             uuid.write(uid + '\n')
             uuids.append(uid)
@@ -128,17 +128,17 @@ if total != 0:
     #Using Results API for each UUID found in Search API results: 
     ips = []
     hashes = []
-    print("[+] Calling Results API for each UUID found in Search API Results...")
+    print("[+] Calling Results API for top 20 UUIDs found in Search API Results...")
     for uuid in uuids:
         resulturl = 'https://urlscan.io/api/v1/result/' + uuid
         finalresults = requests.get(resulturl, headers=headers)
         frjson = finalresults.json()
-        finalresults_str = json.dumps(finalresults_json, indent=4)
+        finalresults_str = json.dumps(frjson, indent=4)
         stats = frjson['stats']['protocolStats']        
         with open('URLResults.txt', 'a') as scanresult:
             scanresult.write("Scan job:" + '\n' + '\n' + json.dumps(frjson['task'], indent=4) + '\n' + '\n')
             scanresult.write("Malicious?: " + str(frjson['verdicts']['urlscan']['malicious']) + '\n' + '\n')
-            scanresult.write("Associated Domains:" + '\n' + '\n' + json.dumps(rjson['lists']['domains'], indent=4) + '\n' + '\n')
+            scanresult.write("Associated Domains:" + '\n' + '\n' + json.dumps(frjson['lists']['domains'], indent=4) + '\n' + '\n')
             scanresult.write("Associated IP's:" + '\n' + '\n') 
             for dictionary in stats:
                 for val in dictionary['ips']:
@@ -202,7 +202,7 @@ else:
     with open('URLScanResults.txt', 'w') as scanresult:
         scanresult.write("Scan job:" + '\n' + '\n' + json.dumps(frjson['task'], indent=4) + '\n' + '\n')
         scanresult.write("Malicious?: " + str(frjson['verdicts']['urlscan']['malicious']) + '\n' + '\n')
-        scanresult.write("Associated Domains:" + '\n' + '\n' + str(frjson['lists']['domains']) + '\n' + '\n')
+        scanresult.write("Associated Domains:" + '\n' + '\n' + str(frjson['lists']['domains'], indent=4) + '\n' + '\n')
         scanresult.write("Associated IP's:" + '\n' + '\n') 
         for dictionary in stats:
             for val in dictionary['ips']:
@@ -217,7 +217,7 @@ else:
     time.sleep(1)
     
 #Setting variables for VirusTotal scan
-notfound = [] #<----- This variable is for the hashes not found in the VT search API call.
+notfound = [] #<----- This variable is for the hashes not found in the VT search API call. These will be scanned. 
 ipv4 = []
 ipv6 = [] 
 domains = frjson['lists']['domains']
@@ -394,6 +394,8 @@ with open("VTScan.txt", 'a') as results:
     results.write(json.dumps(response, indent=4))
 print('[+] Scan analysis appended to "VTScan.txt"...')
 time.sleep(1)
+
+
 
 print("[+] Scan complete...")
 #ezlife
