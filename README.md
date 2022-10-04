@@ -1,5 +1,5 @@
 # SusLinks
-A script written in Python3 that utilizes the URLScan.IO and VirusTotal API's to scan aand provide details for a supplied URL. 
+A script written in Python3 that utilizes the URLScan.IO and VirusTotal API's to scan and provide details for a supplied URL. 
 
 
 ![image](https://user-images.githubusercontent.com/98996357/193865988-71971d46-e8f4-4970-82df-d9473c72d24a.png)
