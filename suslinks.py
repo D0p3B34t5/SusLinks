@@ -11,7 +11,6 @@ import subprocess as sp
 import ipaddress
 import socket
 import base64
-import re
 from art import *
 
 #Banner
@@ -382,8 +381,8 @@ time.sleep(1)
 print("[+] Sending URL to VirusTotal API for scanning...")
 payload = 'url={}%3A%2F%2F{}'.format(protocol, url)
 req = requests.post(scanurl, data=payload, headers=vt_postheaders)
-print("     [+] Waiting 15 seconds for results...")
-time.sleep(15)
+print("     [+] Waiting 60 seconds for results...")
+time.sleep(60)
 
 #Retrieve VirusTotal scan analysis and append to VT Scan results file.
 url_id = base64.urlsafe_b64encode('{}'.format(sys.argv[2]).encode()).decode().strip("=")
